@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMF Consultant</title>
+    <link rel="icon" href="logo.jpeg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+   body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+        background-color: transparent;
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-content h1 {
+        font-family: 'Montserrat', sans-serif;
+        color: #0e4166;
+        font-size: 24px;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style-type: none;
+    }
+
+    .nav-links li {
+        margin-left: 20px;
+    }
+
+    .nav-links a {
+        color: #0e4166;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: black;
+    }
+
+    /* Hero Section */
+    .hero {
+        background-image: linear-gradient(to bottom, #0e4166, #0e4166), url('logo.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: #ffc107;
+        color: #0e4166;
+        padding: 12px 24px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: white;
+        color: black;
+    }
+
+    /* About Section */
+    .about {
+        padding: 80px 0;
+        background-color: #fff;
+    }
+
+    .about-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .about-content img {
+        width: 300px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-text {
+        flex-grow: 1;
+        margin-left: 40px;
+    }
+
+    .about-text h2 {
+        font-size: 36px;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 20px;
+    }
+
+    .about-text p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    /* Services Section */
+    .services {
+        padding: 80px 0;
+        background-color: #f4f4f4;
+    }
+
+    .services h2 {
+        font-size: 36px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .service-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+    }
+
+    .service-item {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s;
+        cursor: pointer;
+    }
+
+    .service-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .service-item h3 {
+        font-size: 24px;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 10px;
+    }
+
+    .service-item p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Gallery Section */
+    .gallery {
+        padding: 80px 0;
+        background-color: #fff;
+    }
+
+    .gallery h2 {
+        font-size: 36px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .gallery-item {
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+
+    /* Contact Section */
+    .contact {
+        padding: 80px 0;
+        background-color: #0e4166;
+        color: #fff;
+    }
+
+    .contact h2 {
+        font-size: 36px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .form-group textarea {
+        height: 150px;
+    }
+
+    .btn-submit {
+        display: block;
+        width: 100%;
+        background-color: #ffc107;
+        color: #0e4166;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-submit:hover {
+        background-color: whitesmoke;
+        color: black;
+    }
+
+    .success-message {
+        display: none;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #0e4166;
+        padding: 40px 0;
+        color: #fff;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-content p {
+        font-size: 16px;
+    }
+
+    .social-links {
+        list-style-type: none;
+        display: flex;
+    }
+
+    .social-links li {
+        margin-left: 20px;
+    }
+
+    .social-links a {
+        color: #fff;
+        font-size: 20px;
+        transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+        color: #ffc107;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+        .about-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .about-content img {
+            margin-bottom: 30px;
+        }
+
+        .about-text {
+            margin-left: 0;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1>AMF Consultant</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<section id="home" class="hero">
+    <div class="container">
+        <h1>AMF Consultant</h1>
+        <p>Complete Business Solution</p>
+        <a href="#contact" class="btn">Contact Us</a>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="container">
+        <div class="about-content">
+            <img src="rizwan.png" alt="Syed Muhammad Rizwan">
+            <div class="about-text">
+                <h2>Syed Muhammad Rizwan</h2>
+                <p>AMF Consultant is an Income Tax and Sales Tax consulting firm founded in 2007. Over the passage of time, we have made a prominent name in the corporate sector.</p>
+                <p>With years of experience in providing financial services, Syed Muhammad Rizwan leads AMF Consultant as a trusted advisor in all accounting matters, ensuring quality and professionalism in every service offered.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="service-list">
+            <div class="service-item">
+                <h3>Professional Accounting</h3>
+                <p>Comprehensive accounting solutions tailored to your business needs.</p>
+            </div>
+            <div class="service-item">
+                <h3>Income Tax Consultancy</h3>
+                <p>Expert consultancy to help you manage and optimize your income taxes.</p>
+            </div>
+            <div class="service-item">
+                <h3>Sales Tax Consultancy</h3>
+                <p>Specialized services in sales tax planning and compliance.</p>
+            </div>
+            <div class="service-item">
+                <h3>Wealth Tax Consultancy</h3>
+                <p>Efficient management of wealth tax to protect your assets.</p>
+            </div>
+            <div class="service-item">
+                <h3>Corporate Affairs</h3>
+                <p>Guidance on corporate affairs and ensuring statutory compliance.</p>
+            </div>
+            <div class="service-item">
+                <h3>Clearing and Forwarding</h3>
+                <p>Reliable clearing and forwarding services to support your logistics.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="gallery" class="gallery">
+    <div class="container">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="post 1.jpeg" alt="Post 1" data-modal-image="post 1.jpeg">
+            </div>
+            <div class="gallery-item">
+                <img src="post 2.jpeg" alt="Post 2" data-modal-image="post 2.jpeg">
+            </div>
+            <div class="gallery-item">
+                <img src="post 3.jpeg" alt="Post 3" data-modal-image="post 3.jpeg">
+            </div>
+            <div class="gallery-item">
+                <img src="post 4.jpeg" alt="Post 4" data-modal-image="post 4.jpeg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form id="contact-form" action="https://formspree.io/f/xdkoglqd" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-content">
+        <p>&copy; 2024 AMF Consultant. All rights reserved.</p>
+        <ul class="social-links">
+            <li><a href="https://www.facebook.com/AMFCONSULTANT"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/muhammad-rizwan-15436786/"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
